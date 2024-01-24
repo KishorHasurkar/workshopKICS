@@ -1,0 +1,20 @@
+---- DEMO
+#pull KICS image
+docker pull checkmarx/kics:latest
+#run a scan
+docker run -v <path to your local IaC files>:/path checkmarx/kics:latest scan -p "/path" --no-progress
+#run a scan generating a default report
+docker run -v <path to your local IaC files>:/path checkmarx/kics:latest scan -p "/path" -o /path
+#run a scan and generate a report
+docker run -v <path to your local IaC files>:/path checkmarx/kics:latest scan -p "/path" -o "/path" --report-formats "pdf"
+ 
+ 
+ 
+#TO RUN for run the query
+docker run -v <path to your local IaC files>:/query checkmarx/kics:latest scan -p /query -q /query --no-progress
+#to verbose add
+-v
+#to generate the json representation of the document
+-d /query/cenas.json
+#to generate a report with the security issues found
+-o /query --report-formats "pdf"

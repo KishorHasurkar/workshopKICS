@@ -1,0 +1,46 @@
+docker pull checkmarx/kics:latest
+
+docker run -v /YOUR_PATH_TO_THE_QUERY:/query checkmarx/kics:latest scan -p /query -q /query --no-progress
+
+
+docker run -v "/Users/soniadias/OneDrive - Checkmarx/kics/query_development_training/query_development_training_encryption_disabled":/query checkmarx/kics:latest scan -p /query -q /query --no-progress
+
+
+
+
+
+
+-d /query/cenas.json
+docker run -v /Users/soniadias/Desktop/KICSTrainingDemos/query_development_training/query_development_training_encryption_disabled:/query checkmarx/kics:latest scan -p /query -q /query --no-progress -v -d /query/cenas.json
+docker run -v /Users/soniadias/Desktop/KICSTrainingDemos/query_development_training/query_development_training_encryption_disabled:/query checkmarx/kics:latest scan -p /query -q /query --no-progress -v -d /query/cenas.json --report-formats "pdf"
+docker run -v /Users/soniadias/Desktop/KICSTrainingDemos/query_development_training/query_development_training_encryption_disabled:/query checkmarx/kics:latest scan -p /query -q /query --no-progress -v -d /query/cenas.json -o /query --report-formats "pdf"
+
+#run a scan and generate a report
+docker run -v "C:\Users\soniad\Documents\kics":/path checkmarx/kics:latest scan -p "/path" -o "/path" --report-formats "pdf"
+docker run -t -v "/Users/soniadias/Documents/kicsTest“:/path checkmarx/kics scan -p "/path/dockerSample” -o "/path/results/”
+----
+#TO RUN for a local scan
+docker run -v /Users/soniadias/Desktop/KICSTrainingDemos/docker_helloWorld:/path checkmarx/kics:latest scan -p "/path" --no-progress 
+docker run -v /Users/soniadias/Desktop/KICSTrainingDemos/docker_helloWorld:/path checkmarx/kics:latest scan -p "/path" -o "/path"
+docker run -v /Users/soniadias/Desktop/KICSTrainingDemos/docker_helloWorld:/path checkmarx/kics:latest scan -p "/path" -o "/path" --report-formats "pdf"
+
+----- DEMO
+#pull KICS image
+docker pull checkmarx/kics:latest
+#run a scan
+docker run -v /Users/soniadias/Desktop/KICSTrainingDemos/docker_helloWorld:/path checkmarx/kics:latest scan -p "/path" --no-progress 
+#run a scan generating a default report
+docker run -v /Users/soniadias/Desktop/KICSTrainingDemos/docker_helloWorld:/path checkmarx/kics:latest scan -p "/path" -o /path
+#run a scan and generate a report
+docker run -v /Users/soniadias/Desktop/KICSTrainingDemos/docker_helloWorld:/path checkmarx/kics:latest scan -p "/path" -o "/path" --report-formats "pdf"
+
+
+
+#TO RUN for run the query
+docker run -v /Users/soniadias/Desktop/KICSTrainingDemos/query_development_training/query_development_training_encryption_disabled:/query checkmarx/kics:latest scan -p /query -q /query --no-progress 
+#to verbose add
+-v 
+#to generate the json representation of the document
+-d /query/cenas.json 
+#to generate a report with the security issues foud
+-o /query --report-formats "pdf"
